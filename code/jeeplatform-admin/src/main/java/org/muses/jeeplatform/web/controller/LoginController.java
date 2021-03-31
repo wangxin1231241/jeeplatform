@@ -15,8 +15,9 @@ import org.muses.jeeplatform.core.entity.admin.Role;
 import org.muses.jeeplatform.core.entity.admin.User;
 import org.muses.jeeplatform.service.MenuService;
 import org.muses.jeeplatform.service.UserService;
-import org.muses.jeeplatform.utils.MenuTreeUtil;
-import org.muses.jeeplatform.utils.Tools;
+import org.muses.jeeplatform.util.ListSortUtils;
+import org.muses.jeeplatform.util.MenuTreeUtils;
+import org.muses.jeeplatform.util.Tools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -164,6 +165,8 @@ public class LoginController extends BaseController {
                 menuList.add(p.getMenu());
             }
 
+            menuList = (List<Menu>)ListSortUtils.sortByDesc(menuList, "menuOrder");
+
 //			List<Menu> menus = new ArrayList<Menu>();
 //			/**为一级菜单添加二级菜单**/
 //			for(Menu m : menuList){
@@ -179,7 +182,7 @@ public class LoginController extends BaseController {
 //					}
 //				}
 //			}
-            MenuTreeUtil treeUtil = new MenuTreeUtil();
+            MenuTreeUtils treeUtil = new MenuTreeUtils();
             List<Menu> treemenus= treeUtil.menuList(menuList);
 
             JSONArray jsonArray = JSONArray.fromObject(treemenus);
