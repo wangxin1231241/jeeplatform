@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8080
 
 spring:
 
@@ -67,9 +67,6 @@ spring:
         maxTotal : 100
         maxIdle : 10
         maxWaitMillis : 100000
-
-
-
 
 
 

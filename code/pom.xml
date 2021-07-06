@@ -226,18 +226,12 @@
 
 	</dependencies>
 
-	<!--  设定Maven私服仓库 -->
+	<!--  设定Maven主仓库为阿里私服 -->
 	<repositories>
-
 		<repository>
 			<id>repos</id>
 			<name>Repository</name>
 			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
-		</repository>
-
-		<repository>
-			<id>jitpack.io</id>
-			<url>https://jitpack.io</url>
 		</repository>
 	</repositories>
 
