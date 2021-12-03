@@ -34,20 +34,12 @@ ps:登录链接一般为：http://127.0.0.1:8080/jeeplatform/login
 ### CMS管理系统(待开发)
 
 ## 三、关键技术
-### 单点登录基础(模块名称jeeplatform-sso-cas)(功能修整中)
-> 项目采用CAS实现单点登录，单点登录集群搭建可以参考博客：
+### 单点登录基础(模块名称jeeplatform-sso)(开发中)
+> 项目采用CAS登录登录实现，单点登录集群搭建可以参考博客：
 > http://blog.csdn.net/u014427391/article/details/78653482
-> 项目单点登录：使用nginx作为负载均衡，使用redis存储tomcat session，来实现集群中tomcat session的共享，使用redis作为cas ticket的仓库，来实现集群中cas ticket的一致性。OA已经对接CAS，admin工程暂时不对接CAS
+> 项目单点登录：使用nginx作为负载均衡，使用redis存储tomcat session，来实现集群中tomcat session的共享，使用redis作为cas ticket的仓库，来实现集群中cas ticket的一致性。
 
-
-图来自官网，这里简单介绍一下，从图可以看出，CAS支持多种方式的认证，一种是LDAP的、比较常见的数据库Database的JDBC，还有Active Directory等等；支持的协议有Custom Protocol 、 CAS 、 OAuth 、 OpenID 、 RESTful API 、 SAML1.1 、 SAML2.0 等
-
-![这里写图片描述](https://img-blog.csdn.net/20180902172712501?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTQ0MjczOTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
-
-CAS单点登录原理，图来自官网
-![这里写图片描述](https://img-blog.csdn.net/20180826231806797?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTQ0MjczOTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
-
-单点登录集群方案如图
+单点登录集群如图
 ![Image text](https://github.com/u014427391/jeeplatform/raw/master/screenshot/单点登录集群.png)
 
 ### SpringBoot集成Redis缓存处理(Spring AOP实现)
@@ -220,14 +212,14 @@ public class RedisAspect {
 
 ## 七、版本说明
 * master版本
-主干版本，代码经过测试，可以正常运行，这个版本还没集成全部CAS单点代码，因为CAS单点服务端代码基本调试成功，而客户端还没实现跨越，所以并没有merge代码
+主干版本，代码经过测试，可以正常运行，这个版本还没集成全部CAS单点代码，因为CAS单点服务端代码基本调试成功，而客户端对接出现bug，所以并没有merge代码
 * dev版本
 dev版本代码和master分支基本一致
 * 1.0.0版本
-基础版，基本实现简单的权限管理，功能还需改善，权限控制还需要进行细粒度控制
+进行CAS单点登录实验的版本，CAS集成有遇到问题，还没合并代码到dev和master
 
-* 1.1.0版本
-进行CAS单点登录对接实验的版本，admin工程暂时还没对接，oa工程有对接
+* 1.0.1版本
+进行Dubbo微服务实验的版本，代码还没合并到dev和master
 
 ## 八、项目技术博客介绍 
 为了帮助学习者更好地理解代码，下面给出自己写的一些博客链接
@@ -257,10 +249,10 @@ dev版本代码和master分支基本一致
 * [Redis学习笔记之分布式锁](https://blog.csdn.net/u014427391/article/details/84934045)
 
 ### Oracle知识
+* [Oracle知识整理笔录](https://blog.csdn.net/u014427391/article/details/82317376)
 * [Oracle笔记之锁表和解锁](https://blog.csdn.net/u014427391/article/details/83046148)
 * [select in超过1000条报错解决方法](https://blog.csdn.net/u014427391/article/details/87922878)
 * [Oracle笔记之修改表字段类型](https://blog.csdn.net/u014427391/article/details/83046006)
-* [Oracle知识整理笔录](https://blog.csdn.net/u014427391/article/details/82317376)
 * [Oracle merge合并更新函数](https://blog.csdn.net/u014427391/article/details/87898729)
 
 ### MySQL知识
@@ -269,10 +261,8 @@ dev版本代码和master分支基本一致
 ### 单点登录
 * [ 单点登录集群安装教程](http://blog.csdn.net/u014427391/article/details/78653482)
 * [CAS单点登录系列之原理简单介绍](https://blog.csdn.net/u014427391/article/details/82083995)
-* [CAS系列之使用cas overlay搭建服务端（一）](https://blog.csdn.net/u014427391/article/details/105818468)
-* [CAS 5.3.1系列之支持JDBC认证登录（二）](https://blog.csdn.net/u014427391/article/details/105603895)
-* [CAS 5.3.1系列之自定义JDBC认证策略（三）](https://blog.csdn.net/u014427391/article/details/105820486)
-* [CAS 5.3.1系列之自定义Shiro认证策略（四）](https://blog.csdn.net/u014427391/article/details/105820586)
+* [CAS单点登录系列之服务端部署](https://blog.csdn.net/u014427391/article/details/91345307)
+* [CAS单点登录系列之支持数据库认证](https://blog.csdn.net/u014427391/article/details/91345240)
 
 ### Docker笔记
 * [Docker简介和安装教程](https://smilenicky.blog.csdn.net/article/details/97613891)
